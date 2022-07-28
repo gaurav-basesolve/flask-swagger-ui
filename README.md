@@ -2,7 +2,7 @@
 
 Simple Flask blueprint for adding [Swagger UI](https://github.com/swagger-api/swagger-ui) to your flask application.
 
-Included Swagger UI version: 3.36.0.
+Included Swagger UI version: 4.11.1.
 
 ## Modification required if using an entry point like ```/api/v1```
 Problem: When added an entry point, swagger.json absolute path to be given in the search bar of swagger page. Or you are required to give double entry point like ```/api/v1/api/v1```.
@@ -57,7 +57,7 @@ app.run()
 ## Configuration
 
 The blueprint supports overloading all Swagger UI configuration options that can be JSON serialized.
-See https://github.com/swagger-api/swagger-ui#parameters for options.
+See https://github.com/swagger-api/swagger-ui/blob/master/docs/usage/configuration.md#parameters for options.
 
 Plugins and function parameters are not supported at this time.
 
