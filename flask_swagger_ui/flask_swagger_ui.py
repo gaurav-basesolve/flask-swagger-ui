@@ -4,7 +4,7 @@ from flask import Blueprint, send_from_directory, render_template, request
 
 
 def get_swaggerui_blueprint(
-    base_url, api_url, config=None, oauth_config=None, blueprint_name="swagger_ui"
+    base_url, api_url, config=None, oauth_config=None, blueprint_name="swagger_ui", entrypoint="/api/v1"
 ):
 
     swagger_ui = Blueprint(
@@ -18,7 +18,7 @@ def get_swaggerui_blueprint(
     default_config = {
         "app_name": "Swagger UI",
         "dom_id": "#swagger-ui",
-        "url": api_url,
+        "url": entrypoint+api_url,
         "layout": "StandaloneLayout",
         "deepLinking": True,
     }
@@ -28,7 +28,7 @@ def get_swaggerui_blueprint(
 
     fields = {
         # Some fields are used directly in template
-        "base_url": "/api/v1" + base_url,
+        "base_url": entrypoint + base_url,
         "app_name": default_config.pop("app_name"),
         # Rest are just serialized into json string for inclusion in the .js file
         "config_json": json.dumps(default_config),
